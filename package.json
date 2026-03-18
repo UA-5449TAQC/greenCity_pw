@@ -1,0 +1,23 @@
+{
+  "name": "greencity_pw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UA-5449TAQC/greenCity_pw.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/UA-5449TAQC/greenCity_pw/issues"
+  },
+  "homepage": "https://github.com/UA-5449TAQC/greenCity_pw#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.5.0"
+  }
+}
