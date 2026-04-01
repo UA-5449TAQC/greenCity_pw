@@ -1,10 +1,14 @@
 import { Page, expect } from '@playwright/test';
+import { HeaderComponent } from '../components/HeaderComponent';
 
 export abstract class BasePage {
     protected page: Page;
+    protected header: HeaderComponent;
 
     constructor(page: Page) {
         this.page = page;
+        this.header = new HeaderComponent(page, this.page.locator('header'));
+        
     }
 
     // ── Abstract contract ─────────────────────────────────────────────────────
@@ -37,6 +41,10 @@ export abstract class BasePage {
     }
     getCurrentUrl(): string {
         return this.page.url();
+    }
+
+    getHeader(): HeaderComponent {
+        return this.header;
     }
 
 }
