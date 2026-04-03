@@ -2,7 +2,7 @@ import { Page, expect } from '@playwright/test';
 import { HeaderComponent } from '../components/HeaderComponent';
 
 export abstract class BasePage {
-    protected page: Page;
+    public page: Page;
     protected header: HeaderComponent;
 
     constructor(page: Page) {

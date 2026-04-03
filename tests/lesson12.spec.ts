@@ -17,10 +17,12 @@ test('lesson12', async ({ page }) => {
     await homePage.getHeader().clickEcoNewsLink();
     let ecoNewsPage = new EcoNewsPage(page);
     await expect(ecoNewsPage.getCurrentUrl()).toContain('#/greenCity/news');
+    let cards = await ecoNewsPage.getCards();
+    let author = await cards[0].getAuthor();
     let ecoNewsItemPage = await ecoNewsPage.clickNewsItemByIndex(0);
     await expect(ecoNewsItemPage.getCurrentUrl()).toContain('#/greenCity/news/');
     await expect(ecoNewsItemPage.title).toBeVisible();
-    await expect(ecoNewsItemPage.author).toHaveText('by Oleksandr');
+    await expect(ecoNewsItemPage.author).toHaveText("by " + author);
 
 });
 
