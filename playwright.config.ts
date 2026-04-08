@@ -23,7 +23,11 @@ export default defineConfig({
   // workers: process.env.CI ? 1 : undefined,
   workers: 5,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [
+    // Together with other reporters
+    ['list'],
+    ['allure-playwright'],
+  ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
 
   timeout: 10_000, // 30 секунд на кожен тест
@@ -35,11 +39,13 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    headless: false,
-    slowMo: 1000,
+    headless: true,
+    // slowMo: 1000,
     screenshot: 'only-on-failure',
     // video: 'retain-on-failure',
   },
+
+
 
   /* Configure projects for major browsers */
   projects: [

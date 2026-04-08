@@ -2,6 +2,7 @@
 import { Locator, Page } from "playwright-core";
 import { BaseComponent } from "./BaseComponent";
 import { LoginModal } from "./LoginModal";
+import { step } from "allure-js-commons";
 
 export class HeaderComponent extends BaseComponent {
     private logo: Locator;
@@ -21,18 +22,27 @@ export class HeaderComponent extends BaseComponent {
 
 
     async clickLogo(): Promise<void> {
-        await this.logo.click();
+        await step('Click on logo in header', async () => {
+            await this.logo.click();
+        });
     }
 
     async clickEcoNewsLink(): Promise<void> {
-        await this.EcoNewsLink.click();
+        await step('Click on Eco News link in header', async () => {
+            await this.EcoNewsLink.click();
+        });
+
     }
 
     async clickEventsLink(): Promise<void> {
-        await this.EventsLink.click();
+        await step ('Click on Events link in header', async () => {
+            await this.EventsLink.click();
+        });
     }
     async clickLoginLink(): Promise<LoginModal> {
-        await this.SignInLink.click();
+        await step ('Click on Sign in link in header', async () => {
+            await this.SignInLink.click();
+        });
         await this.SignInRootLocator.waitFor({ state: 'visible' });
         const loginModal = new LoginModal(this.page, this.SignInRootLocator);
         return loginModal;

@@ -1,5 +1,6 @@
 import { Locator, Page } from "@playwright/test";
 import { BaseComponent } from "./BaseComponent";
+import { step } from "allure-js-commons";
 
 
 export class LoginModal extends BaseComponent {
@@ -15,8 +16,10 @@ export class LoginModal extends BaseComponent {
     }
 
     async login(email: string, password: string): Promise<void> {
-        await this.emailInput.fill(email);
-        await this.passwordInput.fill(password);
-        await this.loginButton.click();
+        await step(`Fill in email: ${email} and password: ${password} fields and click login button`, async () => {
+            await this.emailInput.fill(email);
+            await this.passwordInput.fill(password);
+            await this.loginButton.click();
+        });
     }
 }

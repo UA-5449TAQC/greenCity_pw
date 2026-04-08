@@ -150,3 +150,8 @@ vite.config.ts.timestamp-*
 .vscode/
 .DS_Store
 docs/
+
+
+# allure-results
+allure-results/
+allure-report/
