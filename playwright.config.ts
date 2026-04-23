@@ -30,7 +30,7 @@ export default defineConfig({
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
 
-  timeout: 10_000, // 30 секунд на кожен тест
+  timeout: 30_000, // 30 секунд на кожен тест
 
 
   use: {

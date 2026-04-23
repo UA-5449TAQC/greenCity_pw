@@ -10,6 +10,7 @@ export class HeaderComponent extends BaseComponent {
     private EventsLink: Locator;
     private SignInLink: Locator;
     private SignInRootLocator: Locator;
+    private LocaleSwitcher: Locator;
 
     constructor(page: Page, root: Locator) {
         super(page, root);
@@ -18,6 +19,7 @@ export class HeaderComponent extends BaseComponent {
         this.EventsLink = this.root.getByRole('link', { name: ' Events ' });
         this.SignInLink = this.root.getByRole('link', { name: 'Sign in' }).or(this.root.getByAltText('sing in button'));
         this.SignInRootLocator = this.page.locator('app-auth-modal');
+        this.LocaleSwitcher = this.root.locator('.lang-option span');
     }
 
 
@@ -46,6 +48,10 @@ export class HeaderComponent extends BaseComponent {
         await this.SignInRootLocator.waitFor({ state: 'visible' });
         const loginModal = new LoginModal(this.page, this.SignInRootLocator);
         return loginModal;
+    }
+
+    async getCurrentLocale(): Promise<string> {
+        return this.LocaleSwitcher.innerText();
     }
 
 }
