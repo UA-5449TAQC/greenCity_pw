@@ -20,6 +20,6 @@ test('lesson10', async ({ page }) => {
     await first_card.click();
     let news_title = page.locator('div.news-title.word-wrap');
     await expect(news_title).toBeVisible();
-    await expect(news_title).toHaveText(/Upcoming environmental event/);
+    await expect(news_title).toHaveText(/Eco future of cities/);
 
 });
